@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Account
 from .serializers import AccountSerializer
+from ll_api.permissions import IsOwnerOrReadOnly
 
 class AccountList(APIView):
     def get(self, request):
@@ -14,9 +15,12 @@ class AccountList(APIView):
 
 class AccountDetail(APIView):
     serializer_class = AccountSerializer
+    permission_classes = [IsOwnerOrReadOnly]
+
     def get_object(self, pk):
         try:
             account = Account.objects.get(pk=pk)
+            self.check_object_permissions(self.request, account)
             return account
         except Account.DoesNotExist:
             raise Http404
