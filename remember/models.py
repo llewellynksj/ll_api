@@ -9,7 +9,7 @@ class Remember(models.Model):
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     leaf = models.ForeignKey(
-        Leaf, related_name='remember', on_delete=models.CASCADE
+        Leaf, related_name='remembered', on_delete=models.CASCADE
     )
     created_at = models.DateTimeField(auto_now_add=True)
 
