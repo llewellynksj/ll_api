@@ -29,4 +29,4 @@ class LeafSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Leaf
-        fields = ['id', 'user', 'created_at', 'updated_at', 'name', 'memory', 'parent1', 'parent2', 'due_date', 'birth_date', 'weight', 'quotation', 'image']
+        fields = ['id', 'user', 'created_at', 'updated_at', 'name', 'memory', 'parent1', 'parent2', 'due_date', 'birth_date', 'weight', 'quotation', 'image', 'account_id', 'account_image', 'is_user']

@@ -13,10 +13,10 @@ class Leaf(models.Model):
   memory = models.TextField()
   parent1 = models.CharField(max_length=100)
   parent2 = models.CharField(max_length=100, blank=True)
-  due_date = models.DateField()
-  birth_date = models.DateField()
-  weight = models.IntegerField()
-  quotation = models.CharField(max_length=100)
+  due_date = models.DateField(blank=True, null=True)
+  birth_date = models.DateField(blank=True, null=True)
+  weight = models.IntegerField(blank=True, null=True)
+  quotation = models.CharField(max_length=100, blank=True)
   image = models.ImageField(
     upload_to='images/',
     default='../default_profile',
