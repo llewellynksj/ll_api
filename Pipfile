@@ -11,6 +11,7 @@ django-cors-headers = "*"
 django-filter = "*"
 dj-rest-auth = "*"
 djangorestframework-simplejwt = "*"
+dj3-cloudinary-storage = "*"
 
 [dev-packages]
 
