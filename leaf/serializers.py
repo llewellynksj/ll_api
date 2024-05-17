@@ -7,6 +7,7 @@ class LeafSerializer(serializers.ModelSerializer):
     is_user = serializers.SerializerMethodField()
     account_id = serializers.ReadOnlyField(source='user.account.id')
     account_image = serializers.ReadOnlyField(source='user.account.image.url')
+    remember_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
       if value.size > 1024 * 1024 * 2:
@@ -29,4 +30,4 @@ class LeafSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Leaf
-        fields = ['id', 'user', 'created_at', 'updated_at', 'name', 'memory', 'parent1', 'parent2', 'due_date', 'birth_date', 'weight', 'quotation', 'image', 'account_id', 'account_image', 'is_user']
+        fields = ['id', 'user', 'created_at', 'updated_at', 'name', 'memory', 'parent1', 'parent2', 'due_date', 'birth_date', 'weight', 'quotation', 'image', 'account_id', 'account_image', 'is_user', 'remember_count']

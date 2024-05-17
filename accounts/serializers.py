@@ -5,6 +5,7 @@ from .models import Account
 class AccountSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source='user.username')
     is_user = serializers.SerializerMethodField()
+    leaf_count = serializers.ReadOnlyField()
 
     def get_is_user(self, obj):
         request = self.context.get('request')
@@ -12,4 +13,4 @@ class AccountSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Account
-        fields = ['id', 'user', 'created_at', 'updated_at', 'name', 'image', 'is_user']
+        fields = ['id', 'user', 'created_at', 'updated_at', 'name', 'image', 'is_user', 'leaf_count']
