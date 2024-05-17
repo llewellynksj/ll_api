@@ -12,6 +12,7 @@ django-filter = "*"
 dj-rest-auth = "*"
 djangorestframework-simplejwt = "*"
 dj3-cloudinary-storage = "*"
+django-allauth = "*"
 
 [dev-packages]
 
