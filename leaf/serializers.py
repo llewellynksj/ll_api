@@ -28,6 +28,21 @@ class LeafSerializer(serializers.ModelSerializer):
         request = self.context.get('request')
         return request.user == obj.user
 
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        if instance.type_of_loss == 'during_pregnancy':
+            representation.pop('birth_date', None)
+            representation.pop('weight', None)
+        return representation
+
+    def validate(self, data):
+        type_of_loss = data.get('type_of_loss')
+        
+        if type_of_loss == 'during_pregnancy':
+            data['birth_date'] = None
+            data['weight'] = None
+        return data
+
     class Meta:
         model = Leaf
-        fields = ['id', 'user', 'created_at', 'updated_at', 'name', 'memory', 'parent1', 'parent2', 'due_date', 'birth_date', 'weight', 'quotation', 'image', 'account_id', 'account_image', 'is_user', 'remember_count']
+        fields = ['id', 'user', 'created_at', 'updated_at', 'type_of_loss', 'name', 'memory', 'parent1', 'parent2', 'due_date', 'birth_date', 'weight', 'image', 'account_id', 'account_image', 'is_user', 'remember_count']
