@@ -113,6 +113,12 @@ if 'LIVE_SERVER_URL' in os.environ:
         rf"{extracted_url}",
     ]
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "https://purple-leaf-525b9e12dd68.herokuapp.com",
+]
+
+
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
