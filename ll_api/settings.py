@@ -107,6 +107,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",
+    "https://purple-leaf-525b9e12dd68.herokuapp.com",
+]
+
+
 if 'LIVE_SERVER_URL' in os.environ:
     extracted_url = re.match(r'^.+://[^/]+', os.environ.get('LIVE_SERVER_URL', ''), re.IGNORECASE).group(0)
     CORS_ALLOWED_ORIGIN_REGEXES = [
