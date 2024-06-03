@@ -9,7 +9,7 @@ from .settings import (
 @api_view()
 def api_root(request):
     return Response({
-        'message': 'Welcome to the Leaf Legacy API',
+        'message': 'Welcome to the Purple Leaf API',
     })
 
 
