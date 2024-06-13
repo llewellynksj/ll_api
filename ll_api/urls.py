@@ -32,7 +32,7 @@ urlpatterns = [
     path('dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),
     path('dj-rest-auth/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('dj-rest-auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('/', include('accounts.urls')),
-    path('/', include('leaf.urls')),
-    path('/', include('remember.urls')),
+    path('', include('accounts.urls')),
+    path('', include('leaf.urls')),
+    path('', include('remember.urls')),
 ]
